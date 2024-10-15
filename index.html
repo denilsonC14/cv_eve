@@ -19,7 +19,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         header {
-            background-color: #4a4a4a;
+            background-color: #778899;
             color: white;
             padding: 20px;
             display: flex;
@@ -47,7 +47,7 @@
         }
         .sidebar {
             width: 30%;
-            background-color: #e6e6fa;
+            background-color: #FFF8DC;
             padding: 20px;
             border-right: 2px solid #dedede;
         }
@@ -83,6 +83,58 @@
         }
         ul li {
             margin-bottom: 10px;
+        }
+        .download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contact-info {
+                text-align: left;
+                margin-top: 10px;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+            .sidebar, .content {
+                width: 100%;
+            }
+            .sidebar {
+                border-right: none;
+                border-bottom: 2px solid #dedede;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .subtitle {
+                font-size: 1em;
+            }
+            .download-btn {
+                bottom: 10px;
+                right: 10px;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -133,7 +185,6 @@
                     </li>
                     <li>Curso: ¿Cómo implementar acciones desde la comunidad para reducir la desnutrición crónica infantil? (120 horas) - Banco de Desarrollo de América Latina/UNICEF (MiriadaX)</li>
                 </ul>
-              
             </div>
             <div class="content">
                 <h2>SOBRE MÍ</h2>
@@ -167,6 +218,7 @@
                 <h2>EXPERIENCIA ADICIONAL</h2>
                 <p>Oficio: Personal de Limpieza</p>
                 <p>Descripción: Mesera</p>
+                
                 <h2>INFORMACIÓN ADICIONAL</h2>
                 <ul>
                     <li>Autodeterminación étnica: Indígena Kichwa Cayamby</li>
@@ -180,5 +232,20 @@
             </div>
         </div>
     </div>
+    
+    <button class="download-btn" onclick="downloadPDF()">Descargar PDF</button>
+
+    <script>
+        function downloadPDF() {
+            alert("En un entorno de producción, esta acción generaría y descargaría el CV en formato PDF.");
+            
+            const link = document.createElement('a');
+            link.download = 'Evelyn_Yessenia_Cachiguango_CV.pdf';
+            link.href = '#';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
 </body>
 </html>
